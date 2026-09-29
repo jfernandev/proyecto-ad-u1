@@ -3,6 +3,7 @@ import java.util.Scanner;
 import ficheros.especie.LeerEspecies;
 import java.io.*;
 import ficheros.especie.CrearEspecie;
+import ficheros.especie.EliminarEspecie;
 
 public class Main {
     public static void main(String[] args) {
@@ -77,7 +78,11 @@ public class Main {
                     System.out.println("Modificar especie");
                     break;
                 case 4:
-                    System.out.println("Eliminar especie");
+                    try {
+                        EliminarEspecie.eliminar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al eliminar la especie.");
+                    }
                     break;
                 case 5:
                     System.out.println("Buscar especie");

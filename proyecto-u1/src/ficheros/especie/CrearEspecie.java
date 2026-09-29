@@ -9,6 +9,16 @@ public class CrearEspecie {
         int id = sc.nextInt();
         sc.nextLine();
 
+        try {
+            if (ExisteEspecie.existe(id)) {
+                System.out.println("Ya existe una especie con ese ID.");
+                return;
+            }
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error al comprobar la especie.");
+            return;
+        }
+
         System.out.print("Nombre común: ");
         String nombreComun = sc.nextLine();
 
