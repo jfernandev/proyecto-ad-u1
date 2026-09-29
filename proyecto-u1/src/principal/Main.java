@@ -1,9 +1,7 @@
 package principal;
 import java.util.Scanner;
-import ficheros.especie.LeerEspecies;
+import ficheros.especie.*;
 import java.io.*;
-import ficheros.especie.CrearEspecie;
-import ficheros.especie.EliminarEspecie;
 
 public class Main {
     public static void main(String[] args) {
@@ -75,7 +73,11 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("Modificar especie");
+                    try {
+                        ModificarEspecie.modificar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al modificar la especie.");
+                    }
                     break;
                 case 4:
                     try {
@@ -85,7 +87,11 @@ public class Main {
                     }
                     break;
                 case 5:
-                    System.out.println("Buscar especie");
+                    try {
+                        BuscarEspecie.buscar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al buscar la especie.");
+                    }
                     break;
                 case 0:
                     break;
