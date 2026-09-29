@@ -1,6 +1,7 @@
 package principal;
 import java.util.Scanner;
 import ficheros.especie.*;
+import ficheros.habitat.*;
 import java.io.*;
 
 public class Main {
@@ -125,7 +126,11 @@ public class Main {
                     System.out.println("Añadir habitat");
                     break;
                 case 3:
-                    System.out.println("Modificar habitat");
+                    try {
+                        ModificarHabitats.modificar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al modificar el habitat.");
+                    }
                     break;
                 case 4:
                     System.out.println("Eliminar habitat");
