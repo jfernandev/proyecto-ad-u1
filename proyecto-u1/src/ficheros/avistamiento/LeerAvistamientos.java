@@ -1,4 +1,22 @@
 package ficheros.avistamiento;
+import modelo.Avistamiento;
+import java.io.*;
 
 public class LeerAvistamientos {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        File fichero = new File(".//datos//Avistamientos.dat");
+        FileInputStream filein = new FileInputStream(fichero);
+        ObjectInputStream dataIS = new ObjectInputStream(filein);
+
+        try {
+            while (true) {
+                Avistamiento avistamiento = (Avistamiento) dataIS.readObject();
+                System.out.println(avistamiento);
+                System.out.println("=======================================================");
+            }
+        } catch (EOFException e) {
+            System.out.println("Fin del fichero.");
+        }
+        dataIS.close();
+    }
 }
