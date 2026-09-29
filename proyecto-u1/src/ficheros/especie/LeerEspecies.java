@@ -3,7 +3,6 @@ import modelo.Especie;
 import java.io.*;
 
 public class LeerEspecies {
-
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         File fichero = new File(".//datos//Especies.dat");
         FileInputStream filein = new FileInputStream(fichero);
