@@ -2,6 +2,7 @@ package principal;
 import java.util.Scanner;
 import ficheros.especie.LeerEspecies;
 import java.io.*;
+import ficheros.especie.CrearEspecie;
 
 public class Main {
     public static void main(String[] args) {
@@ -66,7 +67,11 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("Añadir especie");
+                    try {
+                        CrearEspecie.anadir(sc);
+                    } catch (IOException e) {
+                        System.out.println("Error al añadir la especie.");
+                    }
                     break;
                 case 3:
                     System.out.println("Modificar especie");
