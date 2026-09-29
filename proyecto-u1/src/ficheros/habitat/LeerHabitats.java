@@ -3,7 +3,7 @@ import modelo.Habitat;
 import java.io.*;
 
 public class LeerHabitats {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void listarHabitats() throws IOException, ClassNotFoundException {
         File fichero = new File(".//datos//Habitats.dat");
         FileInputStream filein = new FileInputStream(fichero);
         ObjectInputStream dataIS = new ObjectInputStream(filein);
@@ -11,8 +11,9 @@ public class LeerHabitats {
         try {
             while (true) {
                 Habitat habitat = (Habitat) dataIS.readObject();
-                System.out.println(habitat);
-                System.out.println("=======================================================");
+                System.out.println("\nNombre: " + habitat.getNombre());
+                System.out.println("Descripción: " + habitat.getDescripcion());
+                System.out.println("\n=======================================================");
             }
         } catch (EOFException e) {
             System.out.println("Fin del fichero.");

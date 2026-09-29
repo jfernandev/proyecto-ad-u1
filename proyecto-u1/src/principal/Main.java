@@ -120,11 +120,21 @@ public class Main {
             switch (opcion) {
 
                 case 1:
-                    System.out.println("Listar habitats");
+                    try {
+                        LeerHabitats.listarHabitats();
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al leer los habitats.");
+                    }
                     break;
+
                 case 2:
-                    System.out.println("Añadir habitat");
+                    try {
+                        CrearHabitat.crear(sc);
+                    } catch (IOException e) {
+                        System.out.println("Error al añadir el habitat.");
+                    }
                     break;
+
                 case 3:
                     try {
                         ModificarHabitats.modificar(sc);
@@ -132,17 +142,30 @@ public class Main {
                         System.out.println("Error al modificar el habitat.");
                     }
                     break;
+
                 case 4:
-                    System.out.println("Eliminar habitat");
+                    try {
+                        EliminarHabitat.eliminar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al eliminar el habitat.");
+                    }
                     break;
+
                 case 5:
-                    System.out.println("Buscar habitat");
+                    try {
+                        BuscarHabitat.buscar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al buscar el habitat.");
+                    }
                     break;
+
                 case 0:
                     break;
+
                 default:
                     System.out.println("Opción no válida.");
             }
+
         } while (opcion != 0);
     }
 
