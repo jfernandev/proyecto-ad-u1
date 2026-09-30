@@ -58,12 +58,10 @@ public class Especie implements Serializable{
 
     @Override
     public String toString() {
-        return "Especie{" +
-                "id=" + id +
-                ", nombreComun='" + nombreComun + '\'' +
-                ", nombreCientifico='" + nombreCientifico + '\'' +
-                ", comestibilidad='" + comestibilidad + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
+        return "ID: " + id +
+                "Nombre común: " + nombreComun +
+                "Nombre científico: " + nombreCientifico +
+                "Comestibilidad: " + comestibilidad +
+                "Descripcion: " + descripcion;
     }
 }
