@@ -11,6 +11,11 @@ public class EliminarHabitat {
         System.out.print("Introduce el ID del habitat que quieres eliminar: ");
         int idEliminar = sc.nextInt();
 
+        if (ExisteHabitatEnAvistamientos.existe(idEliminar)) {
+            System.out.println("No se puede eliminar el habitat porque tiene avistamientos asociados.");
+            return;
+        }
+
         File fichero = new File(".//datos//Habitats.dat");
         File ficheroAux = new File(".//datos//HabitatsAux.dat");
 

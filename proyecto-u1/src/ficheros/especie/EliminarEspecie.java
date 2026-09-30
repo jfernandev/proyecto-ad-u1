@@ -9,6 +9,11 @@ public class EliminarEspecie {
         System.out.print("Introduce el ID de la especie que quieres eliminar: ");
         int idEliminar = sc.nextInt();
 
+        if (ExisteEspecieEnAvistamientos.existe(idEliminar)) {
+            System.out.println("No se puede eliminar la especie porque tiene avistamientos asociados.");
+            return;
+        }
+
         File fichero = new File(".//datos//Especies.dat");
         File ficheroAux = new File(".//datos//EspeciesAux.dat");
 
