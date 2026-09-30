@@ -1,0 +1,42 @@
+<list>
+  <avistamiento>
+    <id>1</id>
+    <idEspecie>1</idEspecie>
+    <idHabitat>1</idHabitat>
+    <fecha>20/09/2026</fecha>
+    <localizacion>Pinar de Vitoria</localizacion>
+    <observaciones>Varios ejemplares encontrados cerca del camino.</observaciones>
+  </avistamiento>
+  <avistamiento>
+    <id>2</id>
+    <idEspecie>2</idEspecie>
+    <idHabitat>1</idHabitat>
+    <fecha>21/09/2026</fecha>
+    <localizacion>Pinar de Álava</localizacion>
+    <observaciones>Ejemplar de buen tamaño.</observaciones>
+  </avistamiento>
+  <avistamiento>
+    <id>3</id>
+    <idEspecie>3</idEspecie>
+    <idHabitat>2</idHabitat>
+    <fecha>22/09/2026</fecha>
+    <localizacion>Hayedo de Altube</localizacion>
+    <observaciones>Encontrado junto a varios ejemplares.</observaciones>
+  </avistamiento>
+  <avistamiento>
+    <id>4</id>
+    <idEspecie>4</idEspecie>
+    <idHabitat>3</idHabitat>
+    <fecha>23/09/2026</fecha>
+    <localizacion>Robledal de Izki</localizacion>
+    <observaciones>Se observaron varios ejemplares.</observaciones>
+  </avistamiento>
+  <avistamiento>
+    <id>5</id>
+    <idEspecie>5</idEspecie>
+    <idHabitat>4</idHabitat>
+    <fecha>24/09/2026</fecha>
+    <localizacion>Pradera de Gorbeia</localizacion>
+    <observaciones>Ejemplar aislado.</observaciones>
+  </avistamiento>
+</list>

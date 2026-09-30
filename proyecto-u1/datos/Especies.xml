@@ -1,0 +1,37 @@
+<list>
+  <especie>
+    <id>1</id>
+    <nombreComun>Niscalo</nombreComun>
+    <nombreCientifico>Lactarius deliciosus</nombreCientifico>
+    <comestibilidad>Comestible</comestibilidad>
+    <descripcion>Seta de color naranja que suele aparecer en pinares.</descripcion>
+  </especie>
+  <especie>
+    <id>2</id>
+    <nombreComun>Boletus</nombreComun>
+    <nombreCientifico>Boletus edulis</nombreCientifico>
+    <comestibilidad>Comestible</comestibilidad>
+    <descripcion>Seta de gran tamaño y carne blanca.</descripcion>
+  </especie>
+  <especie>
+    <id>3</id>
+    <nombreComun>Galamperna</nombreComun>
+    <nombreCientifico>Macrolepiota procera</nombreCientifico>
+    <comestibilidad>Comestible</comestibilidad>
+    <descripcion>Seta de sombrero grande y pie alto.</descripcion>
+  </especie>
+  <especie>
+    <id>4</id>
+    <nombreComun>Huevo de rey</nombreComun>
+    <nombreCientifico>Amanita caesarea</nombreCientifico>
+    <comestibilidad>Comestible</comestibilidad>
+    <descripcion>Seta de sombrero anaranjado.</descripcion>
+  </especie>
+  <especie>
+    <id>5</id>
+    <nombreComun>Carbonera</nombreComun>
+    <nombreCientifico>Russula cyanoxantha</nombreCientifico>
+    <comestibilidad>Comestible</comestibilidad>
+    <descripcion>Seta de colores variados.</descripcion>
+  </especie>
+</list>

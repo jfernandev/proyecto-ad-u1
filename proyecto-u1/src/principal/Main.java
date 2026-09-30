@@ -4,6 +4,7 @@ import ficheros.especie.*;
 import ficheros.habitat.*;
 import java.io.IOException;
 import java.util.Scanner;
+import xml.*;
 
 public class Main {
 
@@ -40,7 +41,13 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Exportación a XML");
+                    try {
+                        ExportarEspeciesXML.exportar();
+                        ExportarHabitatsXML.exportar();
+                        ExportarAvistamientosXML.exportar();
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al exportar los datos a XML.");
+                    }
                     break;
 
                 case 0:

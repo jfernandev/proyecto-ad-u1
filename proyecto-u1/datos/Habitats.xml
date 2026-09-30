@@ -1,0 +1,27 @@
+<list>
+  <habitat>
+    <id>1</id>
+    <nombre>Pinar</nombre>
+    <descripcion>Bosque dominado por pinos.</descripcion>
+  </habitat>
+  <habitat>
+    <id>2</id>
+    <nombre>Hayedo</nombre>
+    <descripcion>Bosque formado principalmente por hayas.</descripcion>
+  </habitat>
+  <habitat>
+    <id>3</id>
+    <nombre>Robledal</nombre>
+    <descripcion>Bosque donde predominan los robles.</descripcion>
+  </habitat>
+  <habitat>
+    <id>4</id>
+    <nombre>Pradera</nombre>
+    <descripcion>Zona abierta con abundante vegetación herbácea.</descripcion>
+  </habitat>
+  <habitat>
+    <id>5</id>
+    <nombre>Bosque mixto</nombre>
+    <descripcion>Bosque formado por diferentes especies de árboles.</descripcion>
+  </habitat>
+</list>
