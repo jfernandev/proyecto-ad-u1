@@ -1,4 +1,5 @@
 package ficheros.avistamiento;
+import ficheros.especie.BuscarEspecie;
 import modelo.Avistamiento;
 import java.io.*;
 
@@ -17,8 +18,7 @@ public class LeerAvistamientos {
         try {
             while (true) {
                 Avistamiento avistamiento = (Avistamiento) dataIS.readObject();
-                System.out.println(avistamiento);
-                System.out.println("--------------------");
+                System.out.println(avistamiento.toString());
             }
         } catch (EOFException e) {
             System.out.println("Fin del fichero.");
