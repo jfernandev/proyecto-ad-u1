@@ -2,6 +2,7 @@ package principal;
 import java.util.Scanner;
 import ficheros.especie.*;
 import ficheros.habitat.*;
+import ficheros.avistamiento.*;
 import java.io.*;
 
 public class Main {
@@ -192,7 +193,11 @@ public class Main {
                     System.out.println("Añadir avistamiento");
                     break;
                 case 3:
-                    System.out.println("Modificar avistamiento");
+                    try {
+                        ModificarAvistamientos.modificar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al modificar el avistamiento.");
+                    }
                     break;
                 case 4:
                     System.out.println("Eliminar avistamiento");
