@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CrearAvistamiento {
 
-    public static void anadir(Scanner sc) throws IOException {
+    public static void crear(Scanner sc) throws IOException {
 
         System.out.print("ID: ");
         int id = sc.nextInt();

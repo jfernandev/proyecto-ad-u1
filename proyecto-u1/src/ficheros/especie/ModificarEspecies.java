@@ -3,7 +3,7 @@ import modelo.Especie;
 import java.io.*;
 import java.util.Scanner;
 
-public class ModificarEspecie {
+public class ModificarEspecies {
     public static void modificar(Scanner sc) throws IOException, ClassNotFoundException {
 
         System.out.print("Introduce el ID de la especie que quieres modificar: ");
