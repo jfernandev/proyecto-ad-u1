@@ -68,13 +68,12 @@ public class Avistamiento implements Serializable{
 
     @Override
     public String toString() {
-        return "Avistamiento{" +
-                "id=" + id +
-                ", idEspecie=" + idEspecie +
-                ", idHabitat=" + idHabitat +
-                ", fecha='" + fecha + '\'' +
-                ", localizacion='" + localizacion + '\'' +
-                ", observaciones='" + observaciones + '\'' +
-                '}';
+        return  "\nID: " + id +
+                "\nID Especie: " + idEspecie +
+                "\nID Hábitat: " + idHabitat +
+                "\nFecha: " + fecha +
+                "\nLocalización: " + localizacion +
+                "\nObservaciones: " + observaciones + "\n" +
+                "\n=======================================================";
     }
 }
