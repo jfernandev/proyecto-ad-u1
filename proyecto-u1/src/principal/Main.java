@@ -171,6 +171,7 @@ public class Main {
     }
 
     private static void menuAvistamientos(Scanner sc) {
+
         int opcion;
 
         do {
@@ -186,12 +187,23 @@ public class Main {
             opcion = sc.nextInt();
 
             switch (opcion) {
+
                 case 1:
-                    System.out.println("Listar avistamientos");
+                    try {
+                        LeerAvistamientos.listarAvistamientos();
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al leer los avistamientos.");
+                    }
                     break;
+
                 case 2:
-                    System.out.println("Añadir avistamiento");
+                    try {
+                        CrearAvistamiento.anadir(sc);
+                    } catch (IOException e) {
+                        System.out.println("Error al añadir el avistamiento.");
+                    }
                     break;
+
                 case 3:
                     try {
                         ModificarAvistamientos.modificar(sc);
@@ -199,17 +211,30 @@ public class Main {
                         System.out.println("Error al modificar el avistamiento.");
                     }
                     break;
+
                 case 4:
-                    System.out.println("Eliminar avistamiento");
+                    try {
+                        EliminarAvistamiento.eliminar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al eliminar el avistamiento.");
+                    }
                     break;
+
                 case 5:
-                    System.out.println("Buscar avistamiento");
+                    try {
+                        BuscarAvistamiento.buscar(sc);
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al buscar el avistamiento.");
+                    }
                     break;
+
                 case 0:
                     break;
+
                 default:
                     System.out.println("Opción no válida.");
             }
+
         } while (opcion != 0);
     }
 }
