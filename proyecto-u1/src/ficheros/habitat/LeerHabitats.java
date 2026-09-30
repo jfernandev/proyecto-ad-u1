@@ -11,9 +11,7 @@ public class LeerHabitats {
         try {
             while (true) {
                 Habitat habitat = (Habitat) dataIS.readObject();
-                System.out.println("\nNombre: " + habitat.getNombre());
-                System.out.println("Descripción: " + habitat.getDescripcion());
-                System.out.println("\n=======================================================");
+                System.out.println(habitat.toString());
             }
         } catch (EOFException e) {
             System.out.println("Fin del fichero.");

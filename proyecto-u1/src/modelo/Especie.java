@@ -59,10 +59,10 @@ public class Especie implements Serializable{
     @Override
     public String toString() {
         return  "\nID: " + id +
-                "Nombre común: " + nombreComun +
-                "Nombre científico: " + nombreCientifico +
-                "Comestibilidad: " + comestibilidad +
-                "Descripcion: " + descripcion +
+                "\nNombre común: " + nombreComun +
+                "\nNombre científico: " + nombreCientifico +
+                "\nComestibilidad: " + comestibilidad +
+                "\nDescripcion: " + descripcion + "\n" +
                 "\n=======================================================";
     }
 }

@@ -11,11 +11,7 @@ public class LeerEspecies {
         try {
             while (true) {
                 Especie especie = (Especie) dataIS.readObject();
-                System.out.println("\nNombre común: " + especie.getNombreComun());
-                System.out.println("Nombre científico: " + especie.getNombreCientifico());
-                System.out.println("Descripción: " + especie.getDescripcion());
-                System.out.println("Comestibilidad: " + especie.getComestibilidad());
-                System.out.println("\n=======================================================");
+                System.out.println(especie.toString());
             }
         } catch (EOFException e) {
             System.out.println("\nFin del fichero.");

@@ -38,9 +38,9 @@ public class Habitat implements Serializable {
 
     @Override
     public String toString() {
-        return  "ID:" + id +
-                "Nombre: " + nombre +
-                "Descripción: " + descripcion +
+        return  "\nID:" + id +
+                "\nNombre: " + nombre +
+                "\nDescripción: " + descripcion + "\n" +
                 "\n=======================================================";
     }
 }
