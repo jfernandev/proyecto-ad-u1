@@ -1,6 +1,7 @@
 package xml;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import modelo.Habitat;
 
 import java.io.*;
@@ -15,8 +16,7 @@ public class ExportarHabitatsXML {
         File fichero = new File(".//datos//Habitats.dat");
 
         if (!fichero.exists()) {
-            System.out.println("No existe el fichero de habitats.");
-            return;
+            throw new FileNotFoundException("No existe el fichero de habitats.");
         }
 
         FileInputStream filein = new FileInputStream(fichero);
@@ -32,7 +32,7 @@ public class ExportarHabitatsXML {
 
         dataIS.close();
 
-        XStream xstream = new XStream();
+        XStream xstream = new XStream(new DomDriver());
 
         xstream.alias("habitat", Habitat.class);
         xstream.alias("habitats", ArrayList.class);

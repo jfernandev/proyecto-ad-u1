@@ -1,12 +1,25 @@
 package ficheros.habitat;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import modelo.Habitat;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class EliminarHabitat {
+
+    public static boolean eliminar(int id) throws IOException, ClassNotFoundException {
+        if (ExisteHabitatEnAvistamientos.existe(id)) {
+            throw new IllegalStateException("No se puede eliminar el hábitat porque tiene avistamientos asociados.");
+        }
+        java.util.List<Habitat> habitats = LeerHabitats.obtenerHabitats();
+        boolean eliminado = habitats.removeIf(habitat -> habitat.getId() == id);
+        if (eliminado) {
+            RepositorioObjetos.escribir(new File(".//datos//Habitats.dat"), habitats);
+        }
+        return eliminado;
+    }
 
     public static void eliminar(Scanner sc) throws IOException, ClassNotFoundException {
 

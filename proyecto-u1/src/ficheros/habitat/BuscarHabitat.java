@@ -8,6 +8,15 @@ import java.util.Scanner;
 
 public class BuscarHabitat {
 
+    public static Habitat buscarPorId(int id) throws IOException, ClassNotFoundException {
+        for (Habitat habitat : LeerHabitats.obtenerHabitats()) {
+            if (habitat.getId() == id) {
+                return habitat;
+            }
+        }
+        return null;
+    }
+
     public static void buscar(Scanner sc) throws IOException, ClassNotFoundException {
 
         int idBuscar = Utilidades.pedirEntero(sc, "Introduce el ID del habitat: ");

@@ -1,6 +1,7 @@
 package ficheros.avistamiento;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import ficheros.especie.ExisteEspecie;
 import ficheros.habitat.ExisteHabitat;
 import modelo.Avistamiento;
@@ -9,6 +10,21 @@ import java.io.*;
 import java.util.Scanner;
 
 public class CrearAvistamiento {
+
+    public static void crear(Avistamiento avistamiento) throws IOException, ClassNotFoundException {
+        if (ExisteAvistamiento.existe(avistamiento.getId())) {
+            throw new IllegalArgumentException("Ya existe un avistamiento con ese ID.");
+        }
+        if (!ExisteEspecie.existe(avistamiento.getIdEspecie())) {
+            throw new IllegalArgumentException("No existe una especie con ese ID.");
+        }
+        if (!ExisteHabitat.existe(avistamiento.getIdHabitat())) {
+            throw new IllegalArgumentException("No existe un hábitat con ese ID.");
+        }
+        java.util.List<Avistamiento> avistamientos = LeerAvistamientos.obtenerAvistamientos();
+        avistamientos.add(avistamiento);
+        RepositorioObjetos.escribir(new File(".//datos//Avistamientos.dat"), avistamientos);
+    }
 
     public static void crear(Scanner sc) throws IOException {
 

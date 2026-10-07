@@ -1,6 +1,7 @@
 package xml;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import modelo.Avistamiento;
 
 import java.io.*;
@@ -15,8 +16,7 @@ public class ExportarAvistamientosXML {
         File fichero = new File(".//datos//Avistamientos.dat");
 
         if (!fichero.exists()) {
-            System.out.println("No existe el fichero de avistamientos.");
-            return;
+            throw new FileNotFoundException("No existe el fichero de avistamientos.");
         }
 
         FileInputStream filein = new FileInputStream(fichero);
@@ -32,7 +32,7 @@ public class ExportarAvistamientosXML {
 
         dataIS.close();
 
-        XStream xstream = new XStream();
+        XStream xstream = new XStream(new DomDriver());
 
         xstream.alias("avistamiento", Avistamiento.class);
         xstream.alias("avistamientos", ArrayList.class);

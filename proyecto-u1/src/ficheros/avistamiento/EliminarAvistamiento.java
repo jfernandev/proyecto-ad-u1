@@ -1,12 +1,22 @@
 package ficheros.avistamiento;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import modelo.Avistamiento;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class EliminarAvistamiento {
+
+    public static boolean eliminar(int id) throws IOException, ClassNotFoundException {
+        java.util.List<Avistamiento> avistamientos = LeerAvistamientos.obtenerAvistamientos();
+        boolean eliminado = avistamientos.removeIf(avistamiento -> avistamiento.getId() == id);
+        if (eliminado) {
+            RepositorioObjetos.escribir(new File(".//datos//Avistamientos.dat"), avistamientos);
+        }
+        return eliminado;
+    }
 
     public static void eliminar(Scanner sc) throws IOException, ClassNotFoundException {
 

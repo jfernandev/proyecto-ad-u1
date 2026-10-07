@@ -7,10 +7,15 @@ import ficheros.habitat.*;
 import java.io.IOException;
 import java.util.Scanner;
 import xml.*;
+import gui.VentanaPrincipal;
 
 public class Main {
 
     public static void main(String[] args) {
+        if (args.length == 0 || ! "--consola".equals(args[0])) {
+            VentanaPrincipal.iniciar();
+            return;
+        }
 
         Scanner sc = new Scanner(System.in);
 

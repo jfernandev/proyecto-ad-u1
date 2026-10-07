@@ -1,12 +1,22 @@
 package ficheros.habitat;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import modelo.Habitat;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class CrearHabitat {
+
+    public static void crear(Habitat habitat) throws IOException, ClassNotFoundException {
+        if (ExisteHabitat.existe(habitat.getId())) {
+            throw new IllegalArgumentException("Ya existe un hábitat con ese ID.");
+        }
+        java.util.List<Habitat> habitats = LeerHabitats.obtenerHabitats();
+        habitats.add(habitat);
+        RepositorioObjetos.escribir(new File(".//datos//Habitats.dat"), habitats);
+    }
 
     public static void crear(Scanner sc) throws IOException {
 

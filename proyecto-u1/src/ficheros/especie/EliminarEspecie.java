@@ -1,12 +1,25 @@
 package ficheros.especie;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import modelo.Especie;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class EliminarEspecie {
+
+    public static boolean eliminar(int id) throws IOException, ClassNotFoundException {
+        if (ExisteEspecieEnAvistamientos.existe(id)) {
+            throw new IllegalStateException("No se puede eliminar la especie porque tiene avistamientos asociados.");
+        }
+        java.util.List<Especie> especies = LeerEspecies.obtenerEspecies();
+        boolean eliminado = especies.removeIf(especie -> especie.getId() == id);
+        if (eliminado) {
+            RepositorioObjetos.escribir(new File(".//datos//Especies.dat"), especies);
+        }
+        return eliminado;
+    }
 
     public static void eliminar(Scanner sc) throws IOException, ClassNotFoundException {
 

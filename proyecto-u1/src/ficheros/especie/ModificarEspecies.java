@@ -1,12 +1,28 @@
 package ficheros.especie;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import modelo.Especie;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class ModificarEspecies {
+
+    public static boolean modificar(int id, Especie datos) throws IOException, ClassNotFoundException {
+        java.util.List<Especie> especies = LeerEspecies.obtenerEspecies();
+        for (Especie especie : especies) {
+            if (especie.getId() == id) {
+                especie.setNombreComun(datos.getNombreComun());
+                especie.setNombreCientifico(datos.getNombreCientifico());
+                especie.setComestibilidad(datos.getComestibilidad());
+                especie.setDescripcion(datos.getDescripcion());
+                RepositorioObjetos.escribir(new File(".//datos//Especies.dat"), especies);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void modificar(Scanner sc) throws IOException, ClassNotFoundException {
 

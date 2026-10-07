@@ -1,12 +1,26 @@
 package ficheros.habitat;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import modelo.Habitat;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class ModificarHabitats {
+
+    public static boolean modificar(int id, Habitat datos) throws IOException, ClassNotFoundException {
+        java.util.List<Habitat> habitats = LeerHabitats.obtenerHabitats();
+        for (Habitat habitat : habitats) {
+            if (habitat.getId() == id) {
+                habitat.setNombre(datos.getNombre());
+                habitat.setDescripcion(datos.getDescripcion());
+                RepositorioObjetos.escribir(new File(".//datos//Habitats.dat"), habitats);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void modificar(Scanner sc) throws IOException, ClassNotFoundException {
 

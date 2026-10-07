@@ -1,28 +1,22 @@
 package ficheros.avistamiento;
-import ficheros.especie.BuscarEspecie;
+import ficheros.RepositorioObjetos;
 import modelo.Avistamiento;
 import java.io.*;
+import java.util.List;
 
 public class LeerAvistamientos {
-    public static void listarAvistamientos() throws IOException, ClassNotFoundException {
-        File fichero = new File(".//datos//Avistamientos.dat");
+    public static List<Avistamiento> obtenerAvistamientos() throws IOException, ClassNotFoundException {
+        return RepositorioObjetos.leer(new File(".//datos//Avistamientos.dat"), Avistamiento.class);
+    }
 
-        if (!fichero.exists()) {
+    public static void listarAvistamientos() throws IOException, ClassNotFoundException {
+        if (!new File(".//datos//Avistamientos.dat").exists()) {
             System.out.println("No existe el fichero de avistamientos.");
             return;
         }
-
-        FileInputStream filein = new FileInputStream(fichero);
-        ObjectInputStream dataIS = new ObjectInputStream(filein);
-
-        try {
-            while (true) {
-                Avistamiento avistamiento = (Avistamiento) dataIS.readObject();
-                System.out.println(avistamiento.toString());
-            }
-        } catch (EOFException e) {
-            System.out.println("Fin del fichero.");
+        for (Avistamiento avistamiento : obtenerAvistamientos()) {
+            System.out.println(avistamiento);
         }
-        dataIS.close();
+        System.out.println("Fin del fichero.");
     }
 }

@@ -8,6 +8,15 @@ import java.util.Scanner;
 
 public class BuscarEspecie {
 
+    public static Especie buscarPorId(int id) throws IOException, ClassNotFoundException {
+        for (Especie especie : LeerEspecies.obtenerEspecies()) {
+            if (especie.getId() == id) {
+                return especie;
+            }
+        }
+        return null;
+    }
+
     public static void buscar(Scanner sc) throws IOException, ClassNotFoundException {
 
         int idBuscar = Utilidades.pedirEntero(sc, "Introduce el ID de la especie: ");

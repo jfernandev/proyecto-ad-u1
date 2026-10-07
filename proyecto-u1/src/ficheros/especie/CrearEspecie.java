@@ -1,12 +1,22 @@
 package ficheros.especie;
 
 import ficheros.Utilidades;
+import ficheros.RepositorioObjetos;
 import modelo.Especie;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class CrearEspecie {
+
+    public static void crear(Especie especie) throws IOException, ClassNotFoundException {
+        if (ExisteEspecie.existe(especie.getId())) {
+            throw new IllegalArgumentException("Ya existe una especie con ese ID.");
+        }
+        java.util.List<Especie> especies = LeerEspecies.obtenerEspecies();
+        especies.add(especie);
+        RepositorioObjetos.escribir(new File(".//datos//Especies.dat"), especies);
+    }
 
     public static void crear(Scanner sc) throws IOException {
 

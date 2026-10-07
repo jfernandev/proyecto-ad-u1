@@ -8,6 +8,15 @@ import java.util.Scanner;
 
 public class BuscarAvistamiento {
 
+    public static Avistamiento buscarPorId(int id) throws IOException, ClassNotFoundException {
+        for (Avistamiento avistamiento : LeerAvistamientos.obtenerAvistamientos()) {
+            if (avistamiento.getId() == id) {
+                return avistamiento;
+            }
+        }
+        return null;
+    }
+
     public static void buscar(Scanner sc) throws IOException, ClassNotFoundException {
 
         int idBuscar = Utilidades.pedirEntero(sc, "Introduce el ID del avistamiento: ");
