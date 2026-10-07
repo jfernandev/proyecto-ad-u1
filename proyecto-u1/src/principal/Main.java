@@ -20,7 +20,7 @@ public class Main {
             System.out.println("1. Gestionar especies");
             System.out.println("2. Gestionar habitats");
             System.out.println("3. Gestionar avistamientos");
-            System.out.println("4. Exportar datos a XML");
+            System.out.println("4. Gestionar XML");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
 
@@ -41,13 +41,7 @@ public class Main {
                     break;
 
                 case 4:
-                    try {
-                        ExportarEspeciesXML.exportar();
-                        ExportarHabitatsXML.exportar();
-                        ExportarAvistamientosXML.exportar();
-                    } catch (IOException | ClassNotFoundException e) {
-                        System.out.println("Error al exportar los datos a XML.");
-                    }
+                    menuXML(sc);
                     break;
 
                 case 0:
@@ -257,6 +251,68 @@ public class Main {
                         BuscarAvistamiento.buscar(sc);
                     } catch (IOException | ClassNotFoundException e) {
                         System.out.println("Error al buscar el avistamiento.");
+                    }
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+
+        } while (opcion != 0);
+    }
+
+    private static void menuXML(Scanner sc) {
+
+        int opcion;
+
+        do {
+
+            System.out.println("\n===== XML =====");
+            System.out.println("1. Exportar datos a XML");
+            System.out.println("2. Leer especies desde XML");
+            System.out.println("3. Leer habitats desde XML");
+            System.out.println("4. Leer avistamientos desde XML");
+            System.out.println("0. Volver");
+            System.out.print("Elige una opción: ");
+
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+                    try {
+                        ExportarEspeciesXML.exportar();
+                        ExportarHabitatsXML.exportar();
+                        ExportarAvistamientosXML.exportar();
+                    } catch (IOException | ClassNotFoundException e) {
+                        System.out.println("Error al exportar los datos a XML.");
+                    }
+                    break;
+
+                case 2:
+                    try {
+                        LeerEspeciesXML.leer();
+                    } catch (IOException e) {
+                        System.out.println("Error al leer las especies desde XML.");
+                    }
+                    break;
+
+                case 3:
+                    try {
+                        LeerHabitatsXML.leer();
+                    } catch (IOException e) {
+                        System.out.println("Error al leer los habitats desde XML.");
+                    }
+                    break;
+
+                case 4:
+                    try {
+                        LeerAvistamientosXML.leer();
+                    } catch (IOException e) {
+                        System.out.println("Error al leer los avistamientos desde XML.");
                     }
                     break;
 
