@@ -1,13 +1,16 @@
 package ficheros.especie;
+
+import ficheros.Utilidades;
 import modelo.Especie;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class EliminarEspecie {
+
     public static void eliminar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID de la especie que quieres eliminar: ");
-        int idEliminar = sc.nextInt();
+        int idEliminar = Utilidades.pedirEntero(sc, "Introduce el ID de la especie que quieres eliminar: ");
 
         if (ExisteEspecieEnAvistamientos.existe(idEliminar)) {
             System.out.println("No se puede eliminar la especie porque tiene avistamientos asociados.");
@@ -32,13 +35,16 @@ public class EliminarEspecie {
 
         try {
             while (true) {
+
                 Especie especie = (Especie) dataIS.readObject();
+
                 if (especie.getId() == idEliminar) {
                     encontrado = true;
                 } else {
                     dataOS.writeObject(especie);
                 }
             }
+
         } catch (EOFException e) {
         }
 

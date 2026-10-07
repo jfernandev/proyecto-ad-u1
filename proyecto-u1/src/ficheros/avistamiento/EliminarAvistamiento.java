@@ -1,13 +1,16 @@
 package ficheros.avistamiento;
+
+import ficheros.Utilidades;
 import modelo.Avistamiento;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class EliminarAvistamiento {
+
     public static void eliminar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID del avistamiento que quieres eliminar: ");
-        int idEliminar = sc.nextInt();
+        int idEliminar = Utilidades.pedirEntero(sc, "Introduce el ID del avistamiento que quieres eliminar: ");
 
         File fichero = new File(".//datos//Avistamientos.dat");
         File ficheroAux = new File(".//datos//AvistamientosAux.dat");
@@ -27,13 +30,16 @@ public class EliminarAvistamiento {
 
         try {
             while (true) {
+
                 Avistamiento avistamiento = (Avistamiento) dataIS.readObject();
+
                 if (avistamiento.getId() == idEliminar) {
                     encontrado = true;
                 } else {
                     dataOS.writeObject(avistamiento);
                 }
             }
+
         } catch (EOFException e) {
         }
 

@@ -1,22 +1,20 @@
 package ficheros.avistamiento;
-import modelo.Avistamiento;
+
+import ficheros.Utilidades;
 import ficheros.especie.ExisteEspecie;
 import ficheros.habitat.ExisteHabitat;
+import modelo.Avistamiento;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class ModificarAvistamientos {
+
     public static void modificar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID del avistamiento que quieres modificar: ");
-        int idModificar = sc.nextInt();
-
-        System.out.print("Nuevo ID de la especie: ");
-        int idEspecie = sc.nextInt();
-
-        System.out.print("Nuevo ID del habitat: ");
-        int idHabitat = sc.nextInt();
-        sc.nextLine();
+        int idModificar = Utilidades.pedirEntero(sc, "Introduce el ID del avistamiento que quieres modificar: ");
+        int idEspecie = Utilidades.pedirEntero(sc, "Nuevo ID de la especie: ");
+        int idHabitat = Utilidades.pedirEntero(sc, "Nuevo ID del habitat: ");
 
         if (!ExisteEspecie.existe(idEspecie)) {
             System.out.println("No existe una especie con ese ID.");
@@ -28,14 +26,9 @@ public class ModificarAvistamientos {
             return;
         }
 
-        System.out.print("Nueva fecha: ");
-        String fecha = sc.nextLine();
-
-        System.out.print("Nueva localización: ");
-        String localizacion = sc.nextLine();
-
-        System.out.print("Nuevas observaciones: ");
-        String observaciones = sc.nextLine();
+        String fecha = Utilidades.pedirTextoNoVacio(sc, "Nueva fecha: ");
+        String localizacion = Utilidades.pedirTextoNoVacio(sc, "Nueva localización: ");
+        String observaciones = Utilidades.pedirTextoNoVacio(sc, "Nuevas observaciones: ");
 
         File fichero = new File(".//datos//Avistamientos.dat");
         File ficheroAux = new File(".//datos//AvistamientosAux.dat");

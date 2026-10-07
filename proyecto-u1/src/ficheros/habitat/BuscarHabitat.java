@@ -1,6 +1,8 @@
 package ficheros.habitat;
 
+import ficheros.Utilidades;
 import modelo.Habitat;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -8,8 +10,7 @@ public class BuscarHabitat {
 
     public static void buscar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID del habitat: ");
-        int idBuscar = sc.nextInt();
+        int idBuscar = Utilidades.pedirEntero(sc, "Introduce el ID del habitat: ");
 
         File fichero = new File(".//datos//Habitats.dat");
 

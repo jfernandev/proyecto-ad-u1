@@ -1,14 +1,16 @@
 package ficheros.especie;
+
+import ficheros.Utilidades;
 import modelo.Especie;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class ModificarEspecies {
+
     public static void modificar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID de la especie que quieres modificar: ");
-        int idModificar = sc.nextInt();
-        sc.nextLine();
+        int idModificar = Utilidades.pedirEntero(sc, "Introduce el ID de la especie a modificar: ");
 
         File fichero = new File(".//datos//Especies.dat");
         File ficheroAux = new File(".//datos//EspeciesAux.dat");
@@ -18,17 +20,10 @@ public class ModificarEspecies {
             return;
         }
 
-        System.out.print("Nuevo nombre común: ");
-        String nombreComun = sc.nextLine();
-
-        System.out.print("Nuevo nombre científico: ");
-        String nombreCientifico = sc.nextLine();
-
-        System.out.print("Nueva comestibilidad: ");
-        String comestibilidad = sc.nextLine();
-
-        System.out.print("Nueva descripción: ");
-        String descripcion = sc.nextLine();
+        String nombreComun = Utilidades.pedirTextoNoVacio(sc, "Nuevo nombre común: ");
+        String nombreCientifico = Utilidades.pedirTextoNoVacio(sc, "Nuevo nombre científico: ");
+        String comestibilidad = Utilidades.pedirTextoNoVacio(sc, "Nueva comestibilidad: ");
+        String descripcion = Utilidades.pedirTextoNoVacio(sc, "Nueva descripción: ");
 
         FileInputStream filein = new FileInputStream(fichero);
         ObjectInputStream dataIS = new ObjectInputStream(filein);

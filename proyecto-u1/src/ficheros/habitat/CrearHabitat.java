@@ -1,5 +1,8 @@
 package ficheros.habitat;
+
+import ficheros.Utilidades;
 import modelo.Habitat;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -7,9 +10,7 @@ public class CrearHabitat {
 
     public static void crear(Scanner sc) throws IOException {
 
-        System.out.print("ID: ");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id = Utilidades.pedirEntero(sc, "ID: ");
 
         try {
             if (ExisteHabitat.existe(id)) {
@@ -21,11 +22,8 @@ public class CrearHabitat {
             return;
         }
 
-        System.out.print("Nombre: ");
-        String nombre = sc.nextLine();
-
-        System.out.print("Descripción: ");
-        String descripcion = sc.nextLine();
+        String nombre = Utilidades.pedirTextoNoVacio(sc, "Nombre: ");
+        String descripcion = Utilidades.pedirTextoNoVacio(sc, "Descripción: ");
 
         Habitat habitat = new Habitat(id, nombre, descripcion);
 

@@ -1,13 +1,16 @@
 package ficheros.especie;
+
+import ficheros.Utilidades;
 import modelo.Especie;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class CrearEspecie {
+
     public static void crear(Scanner sc) throws IOException {
-        System.out.print("ID: ");
-        int id = sc.nextInt();
-        sc.nextLine();
+
+        int id = Utilidades.pedirEntero(sc, "ID: ");
 
         try {
             if (ExisteEspecie.existe(id)) {
@@ -19,17 +22,10 @@ public class CrearEspecie {
             return;
         }
 
-        System.out.print("Nombre común: ");
-        String nombreComun = sc.nextLine();
-
-        System.out.print("Nombre científico: ");
-        String nombreCientifico = sc.nextLine();
-
-        System.out.print("Comestibilidad: ");
-        String comestibilidad = sc.nextLine();
-
-        System.out.print("Descripción: ");
-        String descripcion = sc.nextLine();
+        String nombreComun = Utilidades.pedirTextoNoVacio(sc, "Nombre común: ");
+        String nombreCientifico = Utilidades.pedirTextoNoVacio(sc, "Nombre científico: ");
+        String comestibilidad = Utilidades.pedirTextoNoVacio(sc, "Comestibilidad: ");
+        String descripcion = Utilidades.pedirTextoNoVacio(sc, "Descripción: ");
 
         Especie especie = new Especie(
                 id,
@@ -58,7 +54,6 @@ public class CrearEspecie {
         }
 
         dataOS.writeObject(especie);
-
         dataOS.close();
 
         System.out.println("Especie añadida correctamente.");

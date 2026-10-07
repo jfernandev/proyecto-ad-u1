@@ -1,13 +1,16 @@
 package ficheros.especie;
+
+import ficheros.Utilidades;
 import modelo.Especie;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class BuscarEspecie {
+
     public static void buscar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID de la especie: ");
-        int idBuscar = sc.nextInt();
+        int idBuscar = Utilidades.pedirEntero(sc, "Introduce el ID de la especie: ");
 
         File fichero = new File(".//datos//Especies.dat");
 
@@ -23,7 +26,9 @@ public class BuscarEspecie {
 
         try {
             while (true) {
+
                 Especie especie = (Especie) dataIS.readObject();
+
                 if (especie.getId() == idBuscar) {
                     System.out.println("\nEspecie encontrada:");
                     System.out.println(especie);
@@ -31,6 +36,7 @@ public class BuscarEspecie {
                     break;
                 }
             }
+
         } catch (EOFException e) {
         }
 

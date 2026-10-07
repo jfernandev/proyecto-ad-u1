@@ -1,7 +1,10 @@
 package ficheros.avistamiento;
-import modelo.Avistamiento;
+
+import ficheros.Utilidades;
 import ficheros.especie.ExisteEspecie;
 import ficheros.habitat.ExisteHabitat;
+import modelo.Avistamiento;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -9,42 +12,34 @@ public class CrearAvistamiento {
 
     public static void crear(Scanner sc) throws IOException {
 
-        System.out.print("ID: ");
-        int id = sc.nextInt();
-
-        System.out.print("ID de la especie: ");
-        int idEspecie = sc.nextInt();
-
-        System.out.print("ID del habitat: ");
-        int idHabitat = sc.nextInt();
-        sc.nextLine();
+        int id = Utilidades.pedirEntero(sc, "ID: ");
+        int idEspecie = Utilidades.pedirEntero(sc, "ID de la especie: ");
+        int idHabitat = Utilidades.pedirEntero(sc, "ID del habitat: ");
 
         try {
             if (ExisteAvistamiento.existe(id)) {
                 System.out.println("Ya existe un avistamiento con ese ID.");
                 return;
             }
+
             if (!ExisteEspecie.existe(idEspecie)) {
                 System.out.println("No existe una especie con ese ID.");
                 return;
             }
+
             if (!ExisteHabitat.existe(idHabitat)) {
                 System.out.println("No existe un habitat con ese ID.");
                 return;
             }
+
         } catch (ClassNotFoundException e) {
             System.out.println("Error al comprobar los datos.");
             return;
         }
 
-        System.out.print("Fecha: ");
-        String fecha = sc.nextLine();
-
-        System.out.print("Localización: ");
-        String localizacion = sc.nextLine();
-
-        System.out.print("Observaciones: ");
-        String observaciones = sc.nextLine();
+        String fecha = Utilidades.pedirTextoNoVacio(sc, "Fecha: ");
+        String localizacion = Utilidades.pedirTextoNoVacio(sc, "Localización: ");
+        String observaciones = Utilidades.pedirTextoNoVacio(sc, "Observaciones: ");
 
         Avistamiento avistamiento = new Avistamiento(
                 id,

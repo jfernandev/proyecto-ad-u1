@@ -1,4 +1,5 @@
 package ficheros.especie;
+
 import modelo.Avistamiento;
 import java.io.*;
 
@@ -18,11 +19,13 @@ public class ExisteEspecieEnAvistamientos {
         try {
             while (true) {
                 Avistamiento avistamiento = (Avistamiento) dataIS.readObject();
+
                 if (avistamiento.getIdEspecie() == idEspecie) {
                     dataIS.close();
                     return true;
                 }
             }
+
         } catch (EOFException e) {
         }
 

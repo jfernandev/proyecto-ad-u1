@@ -1,5 +1,8 @@
 package ficheros.avistamiento;
+
+import ficheros.Utilidades;
 import modelo.Avistamiento;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -7,8 +10,7 @@ public class BuscarAvistamiento {
 
     public static void buscar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID del avistamiento: ");
-        int idBuscar = sc.nextInt();
+        int idBuscar = Utilidades.pedirEntero(sc, "Introduce el ID del avistamiento: ");
 
         File fichero = new File(".//datos//Avistamientos.dat");
 
@@ -24,7 +26,9 @@ public class BuscarAvistamiento {
 
         try {
             while (true) {
+
                 Avistamiento avistamiento = (Avistamiento) dataIS.readObject();
+
                 if (avistamiento.getId() == idBuscar) {
                     System.out.println("\nAvistamiento encontrado:");
                     System.out.println(avistamiento);
@@ -32,8 +36,10 @@ public class BuscarAvistamiento {
                     break;
                 }
             }
+
         } catch (EOFException e) {
         }
+
         dataIS.close();
 
         if (!encontrado) {

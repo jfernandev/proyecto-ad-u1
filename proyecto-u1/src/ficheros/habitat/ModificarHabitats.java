@@ -1,14 +1,16 @@
 package ficheros.habitat;
+
+import ficheros.Utilidades;
 import modelo.Habitat;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class ModificarHabitats {
+
     public static void modificar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID del habitat que quieres modificar: ");
-        int idModificar = sc.nextInt();
-        sc.nextLine();
+        int idModificar = Utilidades.pedirEntero(sc, "Introduce el ID del habitat que quieres modificar: ");
 
         File fichero = new File(".//datos//Habitats.dat");
         File ficheroAux = new File(".//datos//HabitatsAux.dat");
@@ -18,11 +20,8 @@ public class ModificarHabitats {
             return;
         }
 
-        System.out.print("Nuevo nombre: ");
-        String nombre = sc.nextLine();
-
-        System.out.print("Nueva descripción: ");
-        String descripcion = sc.nextLine();
+        String nombre = Utilidades.pedirTextoNoVacio(sc, "Nuevo nombre: ");
+        String descripcion = Utilidades.pedirTextoNoVacio(sc, "Nueva descripción: ");
 
         FileInputStream filein = new FileInputStream(fichero);
         ObjectInputStream dataIS = new ObjectInputStream(filein);
@@ -34,12 +33,15 @@ public class ModificarHabitats {
 
         try {
             while (true) {
+
                 Habitat habitat = (Habitat) dataIS.readObject();
+
                 if (habitat.getId() == idModificar) {
                     habitat.setNombre(nombre);
                     habitat.setDescripcion(descripcion);
                     encontrado = true;
                 }
+
                 dataOS.writeObject(habitat);
             }
 

@@ -1,4 +1,6 @@
 package principal;
+
+import ficheros.Utilidades;
 import ficheros.avistamiento.*;
 import ficheros.especie.*;
 import ficheros.habitat.*;
@@ -22,9 +24,8 @@ public class Main {
             System.out.println("3. Gestionar avistamientos");
             System.out.println("4. Gestionar XML");
             System.out.println("0. Salir");
-            System.out.print("Elige una opción: ");
 
-            opcion = sc.nextInt();
+            opcion = Utilidades.pedirEntero(sc, "Elige una opción: ");
 
             switch (opcion) {
 
@@ -70,9 +71,8 @@ public class Main {
             System.out.println("4. Eliminar especie");
             System.out.println("5. Buscar especie");
             System.out.println("0. Volver");
-            System.out.print("Elige una opción: ");
 
-            opcion = sc.nextInt();
+            opcion = Utilidades.pedirEntero(sc, "Elige una opción: ");
 
             switch (opcion) {
 
@@ -139,9 +139,8 @@ public class Main {
             System.out.println("4. Eliminar habitat");
             System.out.println("5. Buscar habitat");
             System.out.println("0. Volver");
-            System.out.print("Elige una opción: ");
 
-            opcion = sc.nextInt();
+            opcion = Utilidades.pedirEntero(sc, "Elige una opción: ");
 
             switch (opcion) {
 
@@ -208,9 +207,8 @@ public class Main {
             System.out.println("4. Eliminar avistamiento");
             System.out.println("5. Buscar avistamiento");
             System.out.println("0. Volver");
-            System.out.print("Elige una opción: ");
 
-            opcion = sc.nextInt();
+            opcion = Utilidades.pedirEntero(sc, "Elige una opción: ");
 
             switch (opcion) {
 
@@ -276,9 +274,8 @@ public class Main {
             System.out.println("3. Leer habitats desde XML");
             System.out.println("4. Leer avistamientos desde XML");
             System.out.println("0. Volver");
-            System.out.print("Elige una opción: ");
 
-            opcion = sc.nextInt();
+            opcion = Utilidades.pedirEntero(sc, "Elige una opción: ");
 
             switch (opcion) {
 

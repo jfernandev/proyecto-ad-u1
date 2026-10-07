@@ -1,6 +1,8 @@
 package ficheros.habitat;
 
+import ficheros.Utilidades;
 import modelo.Habitat;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -8,8 +10,7 @@ public class EliminarHabitat {
 
     public static void eliminar(Scanner sc) throws IOException, ClassNotFoundException {
 
-        System.out.print("Introduce el ID del habitat que quieres eliminar: ");
-        int idEliminar = sc.nextInt();
+        int idEliminar = Utilidades.pedirEntero(sc, "Introduce el ID del habitat que quieres eliminar: ");
 
         if (ExisteHabitatEnAvistamientos.existe(idEliminar)) {
             System.out.println("No se puede eliminar el habitat porque tiene avistamientos asociados.");
